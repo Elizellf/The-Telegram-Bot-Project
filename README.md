@@ -9,6 +9,10 @@
 
 ## Необходимые модули для работы
 
-* Python3.12
-* random
-* telebot
+- Версия Python 3.12+
+- Установить используемые библиотеки
+  - `pip install telebot`
+- В файле `bot_functions.py` указать токен бота в переменной `TOKEN`
+
+- Запустить файл main.py
+  - `python main.py`
