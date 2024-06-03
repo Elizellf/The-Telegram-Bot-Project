@@ -30,7 +30,7 @@ def send_status(message):
 # Обработчик ответа 
 @bot.message_handler(func=lambda message: True)
 def reply_to_other_messages(message):
-    bot.reply_to(message, "Cпасибо, что поделился.")
+    bot.reply_to(message, "Cпасибо за сообщение.")
 
 # Запуск бота
 def start_bot():
