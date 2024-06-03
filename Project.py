@@ -10,7 +10,7 @@ bot = telebot.TeleBot(TOKEN)
 # Обработчик команды /start
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "Привет, " + message.from_user.first_name)  # Фраза приветствия
+    bot.reply_to(message, "Привет, " + message.from_user.first_name + "!")  # Фраза приветствия
 
 # Обработчик сообщений с приветствием
 @bot.message_handler(func=lambda message: message.text.lower() in ["привет!", "привет"])
