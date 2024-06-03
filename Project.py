@@ -10,13 +10,15 @@ bot = telebot.TeleBot(TOKEN)
 # Обработчик команды /start
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "Привет!")  # Фраза приветствия
+    bot.reply_to(message, "Привет, " + message.from_user.first_name)  # Фраза приветствия
+
 
 # Обработчик сообщений с приветствием
 @bot.message_handler(func=lambda message: message.text.lower() in ["привет!", "привет"])
 def send_hello(message):
-    bot.reply_to(message, "Привет!")
-    
+    bot.reply_to(message, "Привет! Ты можешь спросить, как у меня дела")
+
+
 # Обработчик сообщений с вопросом "Как дела?"
 @bot.message_handler(func=lambda message: message.text.lower() in ["как дела?", "как дела"])
 def send_status(message):
@@ -27,10 +29,12 @@ def send_status(message):
     ]
     bot.reply_to(message, random.choice(responses))  # Выбор случайного варианта ответа
 
+
 # Обработчик всех остальных сообщений
 @bot.message_handler(func=lambda message: True)
 def reply_to_other_messages(message):
     bot.reply_to(message, "Я пока не знаю, как ответить на это сообщение.")
 
 # Запуск бота
-bot.polling()
+def start_bot():
+    bot.polling()
